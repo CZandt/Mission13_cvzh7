@@ -2,6 +2,17 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import {
+  BrowserRouter as Routes,
+  Router,
+  Route,
+  Outlet,
+  Link,
+} from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
+import Home from './Home';
+import MovieCollection from './MovieCollection';
+import Podcasts from './Podcasts';
 
 function MovieNavBar() {
   return (
@@ -12,9 +23,9 @@ function MovieNavBar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Movie Collection</Nav.Link>
-              <Nav.Link href="#podcasts">My Podcasts</Nav.Link>
+              <Nav.Link>Home</Nav.Link>
+              <Nav.Link>Movie Collection</Nav.Link>
+              <Nav.Link>Podcast</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -23,4 +34,33 @@ function MovieNavBar() {
   );
 }
 
-export default MovieNavBar;
+function NavBar() {
+  return (
+    <nav className="navbar navbar-expand navbar-light bg-light">
+      <Link to="/" className="navbar-brand p-3">
+        Joel Hilton's Movie Collection
+      </Link>
+      <div className="" id="navbarNav">
+        <ul className="navbar-nav">
+          <li className="nav-item active">
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/podcast">
+              My Podcasts
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/movieList">
+              Movie Collection
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+}
+
+export default NavBar;

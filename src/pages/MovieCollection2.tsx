@@ -1,10 +1,7 @@
-import { useState } from 'react';
-import data from './MovieData.json';
-import { BrowserRouter as Routes, Route, Outlet } from 'react-router-dom';
+import data from '../MovieData.json';
 const MovieData = data.MovieData;
-import { Link } from 'react-router-dom';
 
-function MovieCollection() {
+function MovieCollection2() {
   return (
     <>
       <br />
@@ -51,4 +48,4 @@ function MovieCollection() {
   );
 }
 
-export default MovieCollection;
+export default MovieCollection2;
