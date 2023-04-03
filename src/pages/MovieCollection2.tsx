@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import data from '../MovieData.json';
 import { Movie } from '../../types/movie';
 
 function MovieCollection2() {
