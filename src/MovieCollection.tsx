@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import data from './MovieData.json';
-import { BrowserRouter as Routes, Route, Outlet } from 'react-router-dom';
 const MovieData = data.MovieData;
-import { Link } from 'react-router-dom';
 
 function MovieCollection() {
   return (

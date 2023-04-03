@@ -1,7 +1,18 @@
+import { useState } from 'react';
 import data from '../MovieData.json';
-const MovieData = data.MovieData;
+import { Movie } from '../../types/movie';
 
 function MovieCollection2() {
+  const [movieData, setMovieData] = useState<Movie[]>([]);
+
+  const fetchMovie = async () => {
+    const rsp = await fetch('https://localhost:4000/movie');
+    const temp = await rsp.json();
+    setMovieData(temp);
+  };
+
+  fetchMovie();
+
   return (
     <>
       <br />
@@ -22,19 +33,23 @@ function MovieCollection2() {
                     <th>Year</th>
                     <th>Rating</th>
                     <th>Category</th>
+                    <th>Notes</th>
                     <th>Edited</th>
+                    <th>Lent To</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  {MovieData.map((m) => (
+                  {movieData.map((m) => (
                     <tr>
-                      <td>{m.Title}</td>
-                      <td>{m.Director}</td>
-                      <td>{m.Year}</td>
-                      <td>{m.Rating}</td>
-                      <td>{m.Category}</td>
-                      <td>{m.Edited ? 'True' : true}</td>
+                      <td>{m.title}</td>
+                      <td>{m.director}</td>
+                      <td>{m.year}</td>
+                      <td>{m.rating}</td>
+                      <td>{m.category}</td>
+                      <td>{m.notes}</td>
+                      <td>{m.edited ? 'True' : true}</td>
+                      <td>{m.lentTo}</td>
                     </tr>
                   ))}
                 </tbody>
